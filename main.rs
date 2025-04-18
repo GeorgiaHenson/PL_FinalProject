@@ -22,9 +22,9 @@ fn main()
 
 
 
-    println!("Average file size: {:.2} bytes", /*1_Georgia_AvgSize*/);
+    // println!("Average file size: {:.2} bytes", /*1_Georgia_AvgSize*/);
 
-    println!("Number of files: {}", /*2_Tiernan_FileCount*/);
+    // println!("Number of files: {}", /*2_Tiernan_FileCount*/);
 
     println!("\nFiles sorted by size:");
     let sorted = 3_Vlad_SortBySize::get_sorted_files_by_size(dir_path);
@@ -32,5 +32,5 @@ fn main()
         println!("{} - {} bytes", path.display(), size);
     }
 
-    println!("\nMost common file type: {}", /*4_Evan_CommonFileType*/);
+    // println!("\nMost common file type: {}", /*4_Evan_CommonFileType*/);
 }
