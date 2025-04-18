@@ -1,6 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>hawks</title>
+    <meta charset="UTF-8">
+    <title>Rust Programming Language</title>
 </head>
 <body>
-hawks
+    <h1>Rust Programming Language</h1>
+
+    <section>
+        <h2>Introduction and History</h2>
+        <p>Rust is a modern systems programming language developed by Mozilla Research. Its first stable release was in 2015. It focuses on safety, concurrency, and performance without a garbage collector. Rust is used by companies like Dropbox, Cloudflare, and Microsoft.</p>
+    </section>
+
+    <section>
+        <h2>Documentation and Resources</h2>
+        <ul>
+            <li><a href="https://www.rust-lang.org/">Official Site</a></li>
+            <li><a href="https://doc.rust-lang.org/book/">The Rust Book</a></li>
+            <li><a href="https://doc.rust-lang.org/std/">API Documentation</a></li>
+            <li><a href="https://play.rust-lang.org/">Playground</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Installation Instructions</h2>
+        <pre><code>curl https://sh.rustup.rs -sSf | sh</code></pre>
+        <p>After installing, run <code>rustc --version</code> to verify.</p>
+    </section>
+
+    <section>
+        <h2>Basic Examples</h2>
+
+        <h3>Hello, World</h3>
+        <pre><code>fn main() {
+    println!("Hello, world!");
+}</code></pre>
+        <p><strong>Build/Run:</strong></p>
+        <pre><code>rustc main.rs
+./main</code></pre>
+
+        <h3>Fibonacci Generator</h3>
+        <pre><code>fn fib(n: u32) -> u32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Advanced Example</h2>
+        <h3>Multithreaded Web Server (Simple)</h3>
+        <pre><code>use std::net::TcpListener;
+use std::thread;
+
+fn main() {
+    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    for stream in listener.incoming() {
+        thread::spawn(|| {
+            let _ = stream.unwrap();
+            println!("Connection received!");
+        });
+    }
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Comparison Table</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Rust</th>
+                    <th>C++</th>
+                    <th>Java</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Memory Safety</td>
+                    <td>✅ Yes</td>
+                    <td>❌ Manual</td>
+                    <td>✅ Yes</td>
+                </tr>
+                <tr>
+                    <td>Concurrency</td>
+                    <td>✅ Native</td>
+                    <td>✅ Libraries</td>
+                    <td>✅ Threads</td>
+                </tr>
+                <tr>
+                    <td>Garbage Collection</td>
+                    <td>❌ No</td>
+                    <td>❌ No</td>
+                    <td>✅ Yes</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>⚡ High</td>
+                    <td>⚡ High</td>
+                    <td>⚡ Medium</td>
+                </tr>
+                <tr>
+                    <td>Syntax Simplicity</td>
+                    <td>✅ Modern</td>
+                    <td>❌ Verbose</td>
+                    <td>✅ Medium</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </body>
+</html>
