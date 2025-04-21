@@ -1,13 +1,12 @@
-mod 1_Georgia_AvgSize;
-mod 2_Tiernan_FileCount;
-mod 3_Vlad_SortBySize;
-mod 4_Evan_CommonFileType;
+mod four_evan_common_file_type;
+mod one_georgia_avg_size;
+mod three_vlad_sort_by_size;
+mod two_tiernan_file_count;
 
 use std::env;
 use std::path::Path;
 
-fn main()
-{
+fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage: {} <directory_path>", args[0]);
@@ -20,14 +19,12 @@ fn main()
         return;
     }
 
-
-
     // println!("Average file size: {:.2} bytes", /*1_Georgia_AvgSize*/);
 
     // println!("Number of files: {}", /*2_Tiernan_FileCount*/);
 
     println!("\nFiles sorted by size:");
-    let sorted = 3_Vlad_SortBySize::get_sorted_files_by_size(dir_path);
+    let sorted = three_vlad_sort_by_size::get_sorted_files_by_size(dir_path);
     for (path, size) in sorted {
         println!("{} - {} bytes", path.display(), size);
     }
