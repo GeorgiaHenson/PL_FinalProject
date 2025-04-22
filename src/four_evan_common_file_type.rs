@@ -3,8 +3,19 @@ use std::ffi::OsString;
 use std::fs;
 use std::path::Path;
 
-// If two extensions have the same rate of occurance, the function arbitrarily
-// picks one of the two.
+/// Gets the most common file type (meaning extension) in the given directory and all of its subdirectories
+///
+/// > **Note**: If two file extensions have the same rate of occurrence, the function arbitrarily
+/// > picks one of the two.
+///
+/// #Examples
+///
+/// ```
+/// let directory = Path::new("./directory/with/lots/of/rust/files/");
+/// let rust_extension = OsString::from("rs");
+/// let number_of_rust_files = 16;
+/// assert_eq!(get_most_common_file_type(directory), Some((rust_extension, number_of_rust_files)));
+/// ```
 pub fn get_most_common_file_type(dir: &Path) -> Option<(OsString, u64)> {
     let mut extensions: HashMap<OsString, u64> = HashMap::new();
     process_extensions(dir, &mut extensions);
@@ -24,7 +35,6 @@ pub fn get_most_common_file_type(dir: &Path) -> Option<(OsString, u64)> {
     most_common
 }
 
-// Modified from three_vlad_sort_by_size::collect_files
 fn process_extensions(dir: &Path, extensions: &mut HashMap<OsString, u64>) {
     if let Ok(entries) = fs::read_dir(dir) {
         for entry in entries.flatten() {
