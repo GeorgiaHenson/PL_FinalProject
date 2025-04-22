@@ -29,5 +29,10 @@ fn main() {
         println!("{} - {} bytes", path.display(), size);
     }
 
-    // println!("\nMost common file type: {}", /*4_Evan_CommonFileType*/);
+    match four_evan_common_file_type::get_most_common_file_type(dir_path)
+        .map(|(extension, _)| extension.into_string())
+    {
+        Some(Ok(extension)) => println!("{}", extension),
+        None | Some(Err(_)) => println!("No files in that directory have extensions"),
+    }
 }
