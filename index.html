@@ -3,53 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Rust Programming Language</title>
+    <style>
+        .code-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+    
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            overflow-x: auto;
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            gap: 20px; /* space between the boxes */
+            flex-wrap: wrap; /* allows boxes to stack on small screens */
+        }
+
+        h2{
+            text-align: center;
+            font-family: 'Courier New', monospace; 
+        }
+
+        .rust-img {
+            display: block;
+            margin: 0 auto;
+            width: 200px; /* Adjust the size as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+      </style>
 </head>
-<body>
-    <h1>Rust Programming Language</h1>
 
-    <section>
+
+<body style ="font-family: Times New Roman, serif; line-height: 1.6; background-color: #f08585; color: #333;">
+    <h1  style = "border: 2px dotted #381805; text-align: center; font-family: 'Courier New', monospace;  color: #381805; text-transform: uppercase;">Rust Programming Language</h1>
+    <h2>By: Vlad Maliutin, Georgia Henson, Tiernan Benner, Evan Lauer </h2>
+    <img src="https://static-00.iconduck.com/assets.00/rust-icon-2048x2048-lfzjbuc7.png" alt="Rust Logo" class="rust-img">
+
+
+    <section style = "text-align: center;">
         <h2>Introduction and History</h2>
-        <p>Rust is a modern systems programming language developed by Mozilla Research. Its first stable release was in 2015. It focuses on safety, concurrency, and performance without a garbage collector. Rust is used by companies like Dropbox, Cloudflare, and Microsoft.</p>
+        <p>Rust is a modern systems programming language primarily developed by Graydon Hoare while he was at Mozilla Research in 2006. Its first 
+            stable release was in 2015. It focuses on safety, concurrency, and performance without a 
+            garbage collector (an automated memory management technique used in many programming languages to reclaim memory occupied by objects that are no longer in use). 
+            Rust is used by companies like Dropbox, Cloudflare, and Microsoft. It is also used in NASA's core flight system, "The Rust language is designed to be memory-safe: it 
+            detects a wide range of programmer errors at compile-time while allowing low-level access to hardware and high performance."</p>
     </section>
 
-    <section>
-        <h2>Documentation and Resources</h2>
-        <ul>
-            <li><a href="https://www.rust-lang.org/">Official Site</a></li>
-            <li><a href="https://doc.rust-lang.org/book/">The Rust Book</a></li>
-            <li><a href="https://doc.rust-lang.org/std/">API Documentation</a></li>
-            <li><a href="https://play.rust-lang.org/">Playground</a></li>
-        </ul>
-    </section>
 
-    <section>
+    <section style = "text-align: center;">
         <h2>Installation Instructions</h2>
-        <pre><code>curl https://sh.rustup.rs -sSf | sh</code></pre>
-        <p>After installing, run <code>rustc --version</code> to verify.</p>
+        <p>For Linux/OS</p>
+        <pre><code>$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh</code></pre>
+        <p>After installing, run <pre><code>rustc --version</code></pre> to verify.</p>
+
+        <p>For VS Code</p>
+        <pre><code>
+            Install the Rust Analyzer extension for syntax highlighting, autocomplete, and more.</code></pre>
     </section>
 
-    <section>
-        <h2>Basic Examples</h2>
+    <h2 style = "text-align: center;">Basic Examples</h2>
+    <div class="container">
+        <section class="code-box">
+          <h2>Basic Examples</h2>
+          <h3>Hello, World</h3>
+          <pre><code>fn main() {
+          println!("Hello, world!");
+      }</code></pre>
+          <p><strong>Build/Run:</strong></p>
+          <pre><code>rustc main.rs
+      ./main</code></pre>
+        </section>
+      
+        <section class="code-box">
+          <h2>Fibonacci Generator</h2>
+          <pre><code>fn fib(n: u32) -> u32 {
+          match n {
+              0 => 0,
+              1 => 1,
+              _ => fib(n - 1) + fib(n - 2),
+          }
+      }</code></pre>
+        </section>
+      </div>
 
-        <h3>Hello, World</h3>
-        <pre><code>fn main() {
-    println!("Hello, world!");
-}</code></pre>
-        <p><strong>Build/Run:</strong></p>
-        <pre><code>rustc main.rs
-./main</code></pre>
-
-        <h3>Fibonacci Generator</h3>
-        <pre><code>fn fib(n: u32) -> u32 {
-    match n {
-        0 => 0,
-        1 => 1,
-        _ => fib(n - 1) + fib(n - 2),
-    }
-}</code></pre>
-    </section>
-
-    <section>
+    <div class="container">
+    <section class="code-box" style = "width: 100%; background-color: bisque;">
         <h2>Advanced Example</h2>
         <h3>Multithreaded Web Server (Simple)</h3>
         <pre><code>use std::net::TcpListener;
@@ -66,8 +112,22 @@ fn main() {
 }</code></pre>
     </section>
 
+<div>
+        <section>
+            <h2>Documentation and Resources</h2>
+            <ul>
+                <li><a href="https://www.rust-lang.org/">Official Site</a></li>
+                <li><a href="https://doc.rust-lang.org/book/">The Rust Book</a></li>
+                <li><a href="https://doc.rust-lang.org/std/">API Documentation</a></li>
+                <li><a href="https://play.rust-lang.org/">Playground</a></li>
+            </ul>
+        </section>
+</div>
+
+</div>
+
     <section>
-        <h2>Comparison Table</h2>
+        <h2 style = "text-align: center;">Comparison Table</h2>
         <table border="1">
             <thead>
                 <tr>
