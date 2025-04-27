@@ -21,7 +21,11 @@ fn main() {
 
     // println!("Average file size: {:.2} bytes", /*1_Georgia_AvgSize*/);
 
-    // println!("Number of files: {}", /*2_Tiernan_FileCount*/);
+    println!("\nNumber of Files & directories:");
+    let counts = two_tiernan_file_count::get_sorted_files_by_size(dir_path); // returns a tuple struct (file_count, folder_count)
+    println!("\nNumber of files: {}", counts.0);
+    println!("\nNumber of Folders: {}", counts.1);
+    
 
     println!("\nFiles sorted by size:");
     let sorted = three_vlad_sort_by_size::get_sorted_files_by_size(dir_path);
