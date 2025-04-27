@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Rust Programming Language</title>
@@ -11,9 +12,9 @@
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             margin: 20px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         }
-    
+
         pre {
             background-color: #eee;
             padding: 10px;
@@ -23,96 +24,130 @@
         .container {
             align-items: center;
             display: flex;
-            gap: 20px; /* space between the boxes */
-            flex-wrap: wrap; /* allows boxes to stack on small screens */
+            gap: 20px;
+            /* space between the boxes */
+            flex-wrap: wrap;
+            /* allows boxes to stack on small screens */
         }
 
-        h2{
+        .black_box {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+
+        h2 {
             text-align: center;
-            font-family: 'Courier New', monospace; 
+            font-family: 'Courier New', monospace;
         }
 
         .rust-img {
             display: block;
             margin: 0 auto;
-            width: 200px; /* Adjust the size as needed */
-            height: auto; /* Maintain aspect ratio */
+            width: 200px;
+            /* Adjust the size as needed */
+            height: auto;
+            /* Maintain aspect ratio */
         }
-      </style>
+    </style>
 </head>
 
 
-<body style ="font-family: Times New Roman, serif; line-height: 1.6; background-color: #f08585; color: #333;">
-    <h1  style = "border: 2px dotted #381805; text-align: center; font-family: 'Courier New', monospace;  color: #381805; text-transform: uppercase;">Rust Programming Language</h1>
+<body style="font-family: Times New Roman, serif; line-height: 1.6; background-color: #f08585; color: #333;">
+    <h1
+        style="border: 2px dotted #381805; text-align: center; font-family: 'Courier New', monospace;  color: #381805; text-transform: uppercase;">
+        Rust Programming Language</h1>
     <h2>By: Vlad Maliutin, Georgia Henson, Tiernan Benner, Evan Lauer </h2>
-    <img src="https://static-00.iconduck.com/assets.00/rust-icon-2048x2048-lfzjbuc7.png" alt="Rust Logo" class="rust-img">
+    <img src="https://static-00.iconduck.com/assets.00/rust-icon-2048x2048-lfzjbuc7.png" alt="Rust Logo"
+        class="rust-img">
 
 
-    <section style = "text-align: center;">
+    <section style="text-align: center;">
         <h2>Introduction and History</h2>
-        <p>Rust is a modern systems programming language primarily developed by Graydon Hoare while he was at Mozilla Research in 2006. Its first 
-            stable release was in 2015. It focuses on safety, concurrency, and performance without a 
-            garbage collector (an automated memory management technique used in many programming languages to reclaim memory occupied by objects that are no longer in use). 
-            Rust is used by companies like Dropbox, Cloudflare, and Microsoft. It is also used in NASA's core flight system, "The Rust language is designed to be memory-safe: it 
-            detects a wide range of programmer errors at compile-time while allowing low-level access to hardware and high performance."</p>
+        <p>Rust is a modern systems programming language primarily developed by Graydon Hoare while he was at Mozilla
+            Research in 2006. Its first
+            stable release was in 2015. It focuses on safety, concurrency, and performance without a
+            garbage collector (an automated memory management technique used in many programming languages to reclaim
+            memory occupied by objects that are no longer in use).
+            Rust is used by companies like Dropbox, Cloudflare, and Microsoft. It is also used in NASA's core flight
+            system, "The Rust language is designed to be memory-safe: it
+            detects a wide range of programmer errors at compile-time while allowing low-level access to hardware and
+            high performance."</p>
     </section>
 
 
-    <section style = "text-align: center;">
+    <section style="text-align: center;">
         <h2>Installation Instructions</h2>
+        <pre>
         <p>For Linux/OS</p>
-        <pre><code>$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh</code></pre>
-        <p>After installing, run <pre><code>rustc --version</code></pre> to verify.</p>
+        <div class = "black_box">
+        $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+        </div>
+        Then, follow the on-screen instructions to install Rust.
+        After installing, run <pre><code>rustc --version</code></pre> to verify.</pre>
 
-        <p>For VS Code</p>
+        <pre>
+            <p>For Windows</p>
+            <div class = "black_box">
+            Download the <strong>RUSTUP</strong> installer from the <a href="https://www.rust-lang.org/tools/install">official Site</a> and run it. You can download it to use in VScode, or 
+            you will be prompted to install the C++ Build Tools.
+            </div>
+        </pre>
+
+
         <pre><code>
-            Install the Rust Analyzer extension for syntax highlighting, autocomplete, and more.</code></pre>
+            <p>For VS Code</p>
+            <div class = "black_box">
+            Install the Rust Analyzer extension for syntax highlighting, autocomplete, and more.
+            </div>
+        </code></pre>
     </section>
 
-    <h2 style = "text-align: center;">Basic Examples</h2>
+    <h2 style="text-align: center;">Basic Examples</h2>
     <div class="container">
         <section class="code-box">
-          <h2>Basic Examples</h2>
-          <h3>Hello, World</h3>
-          <pre><code>fn main() {
+            <h2>Basic Examples</h2>
+            <h3>Hello, World</h3>
+            <pre><code>fn main() {
           println!("Hello, world!");
       }</code></pre>
-          <p><strong>Build/Run:</strong></p>
-          <pre><code>rustc main.rs
+            <p><strong>Build/Run:</strong></p>
+            <pre><code>rustc main.rs
       ./main</code></pre>
         </section>
-      
+
+
         <section class="code-box">
-          <h2>Fibonacci Generator</h2>
-          <pre><code>fn fib(n: u32) -> u32 {
-          match n {
-              0 => 0,
-              1 => 1,
-              _ => fib(n - 1) + fib(n - 2),
+            <h2>Fibonacci Generator</h2>
+            <pre><code>fn fib(n: u32) -> u32 {
+              match n {
+                  0 => 0,
+                  1 => 1,
+                  _ => fib(n - 1) + fib(n - 2),
+              }
+            }<p>fn main() {
+              let n = 10;
+              println!("fib({}) = {}", n, fib(n));
           }
-      }</code></pre>
+        </p>
+            </code></pre>
+            <strong>Build/Run:</strong>
+            <pre><code>rustc main.rs
+          ./main
+            </code></pre>
         </section>
-      </div>
+    </div>
 
     <div class="container">
-    <section class="code-box" style = "width: 100%; background-color: bisque;">
-        <h2>Advanced Example</h2>
-        <h3>Multithreaded Web Server (Simple)</h3>
-        <pre><code>use std::net::TcpListener;
-use std::thread;
+        <section class="code-box" style="width: 100%; background-color: bisque;">
+            <h2>Advanced Example</h2>
 
-fn main() {
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    for stream in listener.incoming() {
-        thread::spawn(|| {
-            let _ = stream.unwrap();
-            println!("Connection received!");
-        });
-    }
-}</code></pre>
-    </section>
+            <div class="container">
+                </code></pre>
+        </section>
 
-<div>
         <section>
             <h2>Documentation and Resources</h2>
             <ul>
@@ -122,54 +157,63 @@ fn main() {
                 <li><a href="https://play.rust-lang.org/">Playground</a></li>
             </ul>
         </section>
-</div>
 
-</div>
 
-    <section>
-        <h2 style = "text-align: center;">Comparison Table</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>Rust</th>
-                    <th>C++</th>
-                    <th>Java</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Memory Safety</td>
-                    <td>✅ Yes</td>
-                    <td>❌ Manual</td>
-                    <td>✅ Yes</td>
-                </tr>
-                <tr>
-                    <td>Concurrency</td>
-                    <td>✅ Native</td>
-                    <td>✅ Libraries</td>
-                    <td>✅ Threads</td>
-                </tr>
-                <tr>
-                    <td>Garbage Collection</td>
-                    <td>❌ No</td>
-                    <td>❌ No</td>
-                    <td>✅ Yes</td>
-                </tr>
-                <tr>
-                    <td>Speed</td>
-                    <td>⚡ High</td>
-                    <td>⚡ High</td>
-                    <td>⚡ Medium</td>
-                </tr>
-                <tr>
-                    <td>Syntax Simplicity</td>
-                    <td>✅ Modern</td>
-                    <td>❌ Verbose</td>
-                    <td>✅ Medium</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        <section>
+            <h2 style="text-align: center;">Comparison Table</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Rust</th>
+                        <th>C++</th>
+                        <th>Go</th>
+                        <th>C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Memory allocate and deallocate</td>
+                        <td>No garbage collector</td>
+                        <td>Manually allocate and deallocate memory</td>
+                        <td>Garbage collector</td>
+                        <td>Manually allocate and deallocate memory "malloc/free"</td>
+                    </tr>
+                    <tr>
+                        <td>Memory safety</td>
+                        <td>The compiler checks everything, but memory is handled by user</td>
+                        <td>Manual memory management, tools exist to assist user</td>
+                        <td>Uses the garbage collector, protects user from errors</td>
+                        <td>No safety built in, user must avoid mistakes</td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>High - Memory allows for better performance</td>
+                        <td>High - Low-level, direct instructions to machine</td>
+                        <td>Medium - Memory management, slower than the rest</td>
+                        <td>Highest - Very low-level, no safety features</td>
+                    </tr>
+                    <tr>
+                        <td>Syntax Simplicity</td>
+                        <td>Modern syntax, strict rules can be confusing (owning and borrowing)</td>
+                        <td>More complex syntax, different styles with different ways to do the same thing</td>
+                        <td>Very easy to read, minimalistic</td>
+                        <td>Easy to read, complexity comes with memory managing and pointers</td>
+                    </tr>
+
+                    <tr>
+                        <td>Error handling</td>
+                        <td>Result/Option - explicitly deal with errors</td>
+                        <td>Exceptions, error codes, try-catch</td>
+                        <td>Simple explicit error handling</td>
+                        <td>"errno" or error codes</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </div>
 </body>
+
+
 </html>
