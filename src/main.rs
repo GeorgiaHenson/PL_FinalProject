@@ -21,10 +21,10 @@ fn main() {
 
     // println!("Average file size: {:.2} bytes", /*1_Georgia_AvgSize*/);
 
-    println!("\nNumber of Files & directories:");
-    let counts = two_tiernan_file_count::get_sorted_files_by_size(dir_path); // returns a tuple struct (file_count, folder_count)
-    println!("\nNumber of files: {}", counts.0);
-    println!("\nNumber of Folders: {}", counts.1);
+    println!("\nCounting Files & directories:");
+    let counts = two_tiernan_file_count::count_files_and_folders(dir_path); // returns a tuple struct (file_count, folder_count)
+    println!("Number of files: {}", counts.0);
+    println!("Number of Folders: {}", counts.1);
     
 
     println!("\nFiles sorted by size:");
