@@ -3,19 +3,20 @@ use std::ffi::OsString;
 use std::fs;
 use std::path::Path;
 
-/// Gets the most common file type (meaning extension) in the given directory and all of its subdirectories
+/// Finds and returns the most common file extension in the given directory and its subdirectories.
 ///
-/// > **Note**: If two file extensions have the same rate of occurrence, the function arbitrarily
-/// > picks one of the two.
+/// # Arguments
+/// * `dir` - A reference to the directory path to scan.
 ///
-/// #Examples
+/// # Returns
+/// * `Option<(OsString, u64)>` -
+///   - `Some((extension, count))` where `extension` is the most frequent file extension and `count` is its frequency.
+///   - `None` if no files with extensions are found.
 ///
-/// ```
-/// let directory = Path::new("./directory/with/lots/of/rust/files/");
-/// let rust_extension = OsString::from("rs");
-/// let number_of_rust_files = 16;
-/// assert_eq!(get_most_common_file_type(directory), Some((rust_extension, number_of_rust_files)));
-/// ```
+/// # Behavior
+/// - Recursively scans all files under the given directory.
+/// - Counts the occurrences of each file extension.
+/// - Returns the extension that occurs the most.
 pub fn get_most_common_file_type(dir: &Path) -> Option<(OsString, u64)> {
     let mut extensions: HashMap<OsString, u64> = HashMap::new();
     process_extensions(dir, &mut extensions);
@@ -35,6 +36,16 @@ pub fn get_most_common_file_type(dir: &Path) -> Option<(OsString, u64)> {
     most_common
 }
 
+/// Recursively processes a directory and counts the occurrences of each file extension.
+///
+/// # Arguments
+/// * `dir` - A reference to the directory path to scan.
+/// * `extensions` - A mutable reference to a `HashMap` where keys are file extensions (`OsString`) 
+///   and values are counts of how many times each extension appears.
+///
+/// # Behavior
+/// - For each file encountered, it extracts the extension and increments its count in the `HashMap`.
+/// - For each directory encountered, it recursively processes its contents.
 fn process_extensions(dir: &Path, extensions: &mut HashMap<OsString, u64>) {
     if let Ok(entries) = fs::read_dir(dir) {
         for entry in entries.flatten() {
