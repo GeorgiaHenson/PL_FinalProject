@@ -34,6 +34,8 @@ fn main() {
         return;
     }
 
+    println!();
+    
     // Georgia: Average file size
     println!("Average file size: {:.2} bytes", one_georgia_avg_size::average_file_size(dir_path));
 
@@ -62,4 +64,6 @@ fn main() {
         },
         None => println!("No files in that directory have extensions"),
     }
+
+    println!();
 }
